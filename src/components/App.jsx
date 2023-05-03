@@ -1,4 +1,6 @@
-
+import {routes,Route, link} from 'react-router-dom';
+import Home from "path/to/pages/Home";
+import Movies from "path/to/pages/Movies";
 
 
 export const App = () => {
