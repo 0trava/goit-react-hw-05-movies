@@ -1,21 +1,20 @@
+// import { Suspense } from 'react';
+import { Outlet, Link } from 'react-router-dom';
+
+
 export const SharedLayout = () => {
     return (
-      <Container>
-        <Header>
-          <Logo />
+      <div name="Container">
+        <div name="Header">
           <nav>
-            <Link to="/" end onClick={e => e.currentTarget.blur()}>
-              Home
-            </Link>
-            <Link to="/movies" onClick={e => e.currentTarget.blur()}>
-              Movies
-            </Link>
+            <Link to="/">Home</Link>
+            <Link to="/movies">Movies</Link>
           </nav>
-        </Header>
+        </div>
   
-        <Suspense fallback={<Loader />}>
+        {/* <Suspense fallback={<Loader />}> */}
           <Outlet />
-        </Suspense>
-      </Container>
+        {/* </Suspense> */}
+      </div>
     );
   };

@@ -10,7 +10,10 @@ import { App } from 'components/App';
 import "modern-normalize";
 import './index.css';
 
-createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
   <StrictMode>
     <BrowserRouter>
       <App />
