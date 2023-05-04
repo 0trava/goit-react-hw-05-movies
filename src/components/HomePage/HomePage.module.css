@@ -1,3 +1,31 @@
+/* Стилі на список */
+
+.container_page{
+  margin-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.container_page li{
+  display: flex;
+
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+
+.container_page li:hover,.container_page li:focus {
+  color: #02528f;
+  font-weight: bold;
+}
+
+
+
+/* ------------------------------ */
+
+
+
 .container{
   display: flex;
   padding-left: 60px;
