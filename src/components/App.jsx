@@ -1,24 +1,31 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { SharedLayout } from "./SharedLayout/SharedLayout";
-import Cast  from "../pages/Movies/cast/Cast";
-import Home from "../pages/Home/Home";
-import MovieDetails  from "../pages/Movies/MovieDetails";
-import Reviews from "../pages/Movies/Reviews/Reviews";
-import Movies from "../pages/Movies/Movies";
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import HomePage from './HomePage/HomePage';
+import css from './App.module.css';
 
+const Home = lazy( async () => import('../pages/Home/Home'));
+const Movies = lazy( async () => import('../pages/Movies/Movies'));
+const MovieDetails = lazy( async () => import('../pages/Movies/MovieDetails'));
+const Cast = lazy( async () => import('../pages/Movies/cast/Cast'));
+const Reviews = lazy( async () => import('../pages/Movies/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />}>
-          <Route path="/cast" element={<Cast />} />
-          <Route path="/reviews" element={<Reviews />} />
+    <div className={css.hed}>
+      <Routes>
+        <Route path="/" element={<HomePage />}>
+          <Route index element={<Home />}></Route>
+          <Route path="movies" element={<Movies />}></Route>
+          {/*  */}
+          <Route path="movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />}></Route>
+            <Route path="reviews" element={<Reviews />}></Route>
+          </Route>
+
+          {/*  */}
+          <Route path="*" element={<Home />}></Route>
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </div>
   );
 };

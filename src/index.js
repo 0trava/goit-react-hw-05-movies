@@ -1,24 +1,21 @@
 // $ npm install modern-normalize
 // $ npm install react-router-dom
+// $ npm i styled-components
 
 
 import React from 'react';
-import { createRoot } from "react-dom/client";
-import { StrictMode } from "react";
-import { BrowserRouter } from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
-import "modern-normalize";
 import './index.css';
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </React.StrictMode>
 );
 
+// basename="/goit-hw-react-05-movies/"
 
