@@ -10,9 +10,9 @@ const SharedLayout = () => {
     <div className={css.container}>
         <div className={css.header}>
           <div>
-            <span role="img" aria-label="movies">
-              💻
-            </span>{" "}
+            <span className={css.logo} role="img" aria-label="movies">
+            &#127916;
+            </span>
           </div>        
           <Link className={css.header_link} to="/">Home</Link>
           <Link className={css.header_link} to="/movies">Movies</Link>
