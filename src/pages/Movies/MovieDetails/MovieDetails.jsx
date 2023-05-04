@@ -1,4 +1,4 @@
-
+import { Outlet } from 'react-router-dom';
 
 
 const MovieDetails = (id) => {
@@ -22,6 +22,7 @@ const MovieDetails = (id) => {
             <li><link to =""/>Cast</li>
             <li><link to ="" />Reviews</li>
         </ul>
+        <Outlet/>
 
      </>
 
