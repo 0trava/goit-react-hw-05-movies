@@ -22,26 +22,16 @@ const Home = () => {
       <h1>Tranding today</h1>
 
       {movies &&
-        movies.map(
-          ({
-            id,
-            title,
-            // poster_path
-          }) => (
+        movies.map(({id,title}) => (
             <ul>
               <li key={id}>
-                <Link
-                  to={{
-                    pathname: `/movies/${`${id}`}`,
+                <Link  to={{ pathname: `/movies/${`${id}`}`,
                     state: {
-                      from: {
-                        location,
-                        label: 'Back to Home',
-                      },
+                      from: { location, label: 'Back to Home',},
                     },
-                  }}
-                >
-                  <p>{title}</p>
+                  }}>
+                   
+                  <p><span>&#9733;</span> {title}</p>
                 </Link>
               </li>
             </ul>
