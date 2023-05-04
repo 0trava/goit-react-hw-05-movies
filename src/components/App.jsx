@@ -6,7 +6,7 @@ import css from './App.module.css';
 
 const Home = lazy( async () => import('../pages/Home/Home'));
 const Movies = lazy( async () => import('../pages/Movies/Movies'));
-const MovieDetails = lazy( async () => import('../pages/Movies/MovieDetails'));
+const MovieDetails = lazy( async () => import('../pages/Movies/MovieDetails/MovieDetails'));
 const Cast = lazy( async () => import('../pages/Movies/cast/Cast'));
 const Reviews = lazy( async () => import('../pages/Movies/Reviews/Reviews'));
 
