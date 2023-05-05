@@ -3,7 +3,7 @@
 
 .movieDet_btn{
     margin-left: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     font-size: 18px;
     color: #121111;
     font-family: inherit;
@@ -41,3 +41,12 @@
     transition-duration: 400ms;
     transition-property: width, left;
   }
+
+  /* Стилі на блок */
+
+  .movieDet_block{
+    display: flex;
+    margin-left: 60px;
+  }
+
+  

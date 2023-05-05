@@ -7,7 +7,7 @@ const MovieDetails = (id) => {
     return (
      <>
         <button className={css.movieDet_btn}>&#129032; Go back</button>
-        <div>
+        <div className={css.movieDet_block}>
             <img src="https://harrypotter.org.ua/wa-data/public/shop/products/54/53/25354/images/38982/38982.750x0.jpg" alt="" />
             <div>
                 <h2>Title</h2>
