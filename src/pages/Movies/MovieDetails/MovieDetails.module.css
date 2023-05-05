@@ -96,3 +96,9 @@
     border-width: 1px;
   }
 
+  .movieDet_link{
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+  }
+

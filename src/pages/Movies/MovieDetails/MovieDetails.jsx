@@ -21,7 +21,7 @@ const MovieDetails = (id) => {
             <div className={css.movieDet_additional_block}>
                 <hr className={css.movieDet_line} />
                 <h3 className={css.movieDet_pre_title}>Additional information</h3>
-                <ul>
+                <ul className={css.movieDet_link}>
                     <li><link to =""/>Cast</li>
                     <li><link to ="" />Reviews</li>
                 </ul>
