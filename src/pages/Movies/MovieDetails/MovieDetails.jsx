@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import css from "./MovieDetails.module.css";
 
 
 const MovieDetails = (id) => {
     console.log("start");
     return (
      <>
-        <button>Go back</button>
+        <button className={css.movieDet_btn}>&#129032; Go back</button>
         <div>
             <img src="https://harrypotter.org.ua/wa-data/public/shop/products/54/53/25354/images/38982/38982.750x0.jpg" alt="" />
             <div>
