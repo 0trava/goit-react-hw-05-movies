@@ -49,4 +49,50 @@
     margin-left: 60px;
   }
 
-  
+  .movieDet_infoBlock{
+    margin-left: 60px;
+  }
+
+  .movieDet_title{
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+
+  .movieDet_userScore{
+    font-size: 18px;
+    color: #0420bb;
+    font-family: inherit;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .movieDet_pre_title{
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .movieDet_additional_block{
+    margin-left: 60px;
+  }
+
+  .movieDet_text{
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .line{
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+  }
+
