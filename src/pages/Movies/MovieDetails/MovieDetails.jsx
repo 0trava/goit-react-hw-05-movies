@@ -1,25 +1,21 @@
 import css from "./MovieDetails.module.css";
-import Loader from '../../../components/Loader/Loader';
-import { useState, useEffect, lazy, Suspense } from 'react';
+// import Loader from '../../../components/Loader/Loader';
+import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails, IMAGE_URL } from '../../../services/movies-api';
 import {
-    Route,
-    Routes,
     useParams,
     Outlet,
     Link,
     // useMatch,
-    // useLocation,
+    useLocation,
     // useNavigate,
   } from 'react-router-dom';
 
 
-const MovieReview = lazy(() =>import('../Reviews/Reviews' /* webpackChunkName:"MovieReview" */));
-const MovieCastView = lazy(() =>import('../cast/Cast' /* webpackChunkName:"MovieCastView" */));
-
 export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
+    const location = useLocation(); // додаємо доступ до параметрів поточного URL
     // const history = useNavigate();
     // const location = useLocation();
     // const { url, path } = useMatch();
@@ -39,7 +35,6 @@ export default function MovieDetailsPage() {
     //   const onGoBack = () => {
     //     history.push(location?.state?.from?.location ?? '/movies');
     //   };
-
     return (
     <div  className={css.movieDet_container}>
     {!movie ? (
@@ -56,7 +51,7 @@ export default function MovieDetailsPage() {
                        alt={movie.title} />
             <div className={css.movieDet_infoBlock}>
                 <h2 className={css.movieDet_title}>{movie.title}</h2>
-                <p className={css.movieDet_userScore}>User Score: {`${movie.vote_average * 10}`}% </p>
+                <p className={css.movieDet_userScore}>User Score: {`${Math.round(movie.vote_average*10)}`}% </p>
                 <h3 className={css.movieDet_pre_title}>Overview</h3>
                 <p className={css.movieDet_text}>{`${movie.overview}`}</p>
                 <h3 className={css.movieDet_pre_title}>Genres</h3>
@@ -70,11 +65,13 @@ export default function MovieDetailsPage() {
                 <hr className={css.movieDet_line} />
                 <h3 className={css.movieDet_pre_title}>Additional information</h3>
                 <ul className={css.movieDet_link}>
-                    <li><Link/>Cast</li>
-                    <li><Link />Reviews</li>
+                    <li><Link to="cast"    state={{ from: location?.state?.from ?? '/' }}>Cast</Link></li>
+                    <li><Link to="reviews" state={{ from: location?.state?.from ?? '/' }}>Reviews</Link></li>
                 </ul>
             </div>
-
-                <Outlet/>
+            <Suspense fallback={<div>Loading subpage...</div>}>
+            <Outlet />
+            </Suspense>
+                
     </div>
     )}

@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './HomePage/HomePage';
-import css from './App.module.css';
 // import Loader from 'components/Loader/Loader';
 
 const Home = lazy( async () => import('../pages/Home/Home'));
@@ -12,7 +11,7 @@ const Reviews = lazy( async () => import('../pages/Movies/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <div className={css.hed}>
+    <div>
       <Routes>
         <Route path="/" element={<HomePage />}>
           <Route index element={<Home />}></Route>

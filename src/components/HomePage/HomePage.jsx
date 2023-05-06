@@ -1,6 +1,6 @@
 // import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Link} from 'react-router-dom';
+import { Suspense } from "react";
+import { Outlet, Link } from 'react-router-dom';
 import css from './HomePage.module.css'; // підключення стилів
 
 
@@ -17,12 +17,16 @@ const SharedLayout = () => {
           </div>
           <nav>
           <Link className={css.header_link} to="/">Home</Link>
-          <Link className={css.header_link} to="/movies">Movies</Link>
+          <Link className={css.header_link} to="movies">Movies</Link>
           </nav>        
         </div>
     </div>
         <div className={css.container_page}>
-        <Outlet />
+
+        <Suspense fallback={<div>Loading page...</div>}>
+            <Outlet />
+        </Suspense>
+        
         </div>
     </div>
 
