@@ -1,6 +1,6 @@
 import css from './Movies.module.css';
 import {useState } from 'react'; // пакети для роботи зі станом
-import {Link, useSearchParams} from 'react-router-dom';
+import {Link, useSearchParams, useLocation} from 'react-router-dom';
 import {searchMovies} from '../../services/movies-api';
 
 
@@ -9,20 +9,24 @@ const Movies = () => {
 const [filter, setFilter] = useState(''); // Хук для filter
 const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
+const location = useLocation();
 
 
-const getSearchParams = (e) => {
+const getSearchParams = async (e) => {
 
     if (filter === ""){
         setSearchParams({});
     } else {
         e.preventDefault(); // Зупиняємо оновлення сторінки
-        let filmlist = searchMovies(filter);
+        const getMovies = async () => {
+            const { results } = await searchMovies(filter);
+      
+            setListMovies(results);
+          };
+
+        getMovies();  
         setSearchParams({c:`${filter}`});
         setFilter("");
-        console.log(filmlist);
-    
-        setListMovies(filmlist);
     }
 
 
@@ -57,11 +61,19 @@ return (
         </form>
         </div>
 
-        { setListMovies && (
-            <>
-            <p>Nen</p>
-            </>
-        ) }
+        {listMovies &&
+        listMovies.map(({id,title}) => (
+            <ul>
+              <li key={id}>
+                <Link  to={{ pathname: `/movies/${`${id}`}`,
+                    state: {from: { location, label: 'Back to Home',},},
+                  }}>
+                  <p><span>&#9733;</span> {title}</p>
+                </Link>
+              </li>
+            </ul>
+          )
+        )}
     </>
 
 
