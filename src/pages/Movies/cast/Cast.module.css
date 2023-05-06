@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 30px;
+    margin-bottom: 30px;
 }
 
 .cast_character{

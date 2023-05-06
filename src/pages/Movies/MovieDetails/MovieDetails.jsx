@@ -2,12 +2,7 @@ import css from "./MovieDetails.module.css";
 import Loader from '../../../components/Loader/Loader';
 import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails, IMAGE_URL } from '../../../services/movies-api';
-import {
-    useParams,
-    Outlet,
-    Link,
-    useLocation,
-  } from 'react-router-dom';
+import { useParams,Outlet, Link, useLocation, } from 'react-router-dom';
 
 
 export default function MovieDetailsPage() {
