@@ -42,7 +42,7 @@ export default function MovieDetailsPage() {
             <img src={ movie.poster_path
                        ? IMAGE_URL + movie.poster_path
                        : `https://bitsofco.de/content/images/2018/12/broken-1.png`}
-                       alt={movie.title}  width="400"/>
+                       alt={movie.title}  width="350"/>
             <div className={css.movieDet_infoBlock}>
                 <h2 className={css.movieDet_title}>{movie.title}</h2>
                 <p className={css.movieDet_userScore}>User Score: {`${Math.round(movie.vote_average*10)}`}% </p>
@@ -59,8 +59,8 @@ export default function MovieDetailsPage() {
                 <hr className={css.movieDet_line} />
                 <h3 className={css.movieDet_pre_title}>Additional information</h3>
                 <ul className={css.movieDet_link}>
-                    <li><Link to="cast"    state={{ from: location?.state?.from ?? '/' }}>Cast</Link></li>
-                    <li><Link to="reviews" state={{ from: location?.state?.from ?? '/' }}>Reviews</Link></li>
+                    <li><Link to="cast"    state={{ from: location?.state?.from ?? '/' }}><button className={css.movieDet_btn}>&#9660; Cast</button></Link></li>
+                    <li><Link to="reviews" state={{ from: location?.state?.from ?? '/' }}><button className={css.movieDet_btn}>&#9660; Reviews</button></Link></li>
                 </ul>
             </div>
             <Suspense fallback={<Loader />}>

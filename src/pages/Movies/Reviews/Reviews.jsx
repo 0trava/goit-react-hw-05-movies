@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // доступ до параметрів поточного URL
 import { getReviews } from '../../../services/movies-api';
+import css from './Reviews.module.css';
 
 
 const Reviews = () => {
@@ -25,11 +26,11 @@ const Reviews = () => {
       <div>
 
         {reviews.length ? (
-          <div className="reviews-container">
+          <div className={css.reviews_container}>
             {reviews.map(review => (
-              <div className="review-card" key={review.id}>
-                <div>Author: {review.author}</div>
-                <div>{review.content}</div>
+              <div className={css.review_card} key={review.id}>
+                <div className={css.review_author}>Author: {review.author}</div>
+                <div className={css.review_author_post}>{review.content}</div>
               </div>
             ))}
           </div>

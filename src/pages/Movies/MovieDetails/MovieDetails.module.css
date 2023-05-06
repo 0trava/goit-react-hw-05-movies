@@ -96,11 +96,25 @@
     overflow: hidden;
     border-style: inset;
     border-width: 1px;
+
   }
 
   .movieDet_link{
+    /* margin-bottom: 30px; */
     display: flex;
     gap: 30px;
     cursor: pointer;
+    font-size: 18px;
+    color: #000000;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+
+  .movieDet_link li:hover,.movieDet_link li:focus {
+    color: #000000;
   }
 

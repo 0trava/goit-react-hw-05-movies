@@ -1,0 +1,10 @@
+.cast_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.cast_character{
+    width: 200px;
+}

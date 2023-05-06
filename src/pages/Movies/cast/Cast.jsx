@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // доступ до параметрів поточного URL
 import { getMovieCast } from '../../../services/movies-api'; // додаємо запит
-
+import css from './Cast.module.css';
 
 
 
@@ -28,7 +28,7 @@ const Cast = () => {
   
         {/* додаємо перевірку на наявність акторів */}
         {cast.length ? (
-          <div>
+          <div className={css.cast_list}>
             {cast.map(actor => (
               <div className="cast-card" key={actor.id}>
   
@@ -47,8 +47,8 @@ const Cast = () => {
   
                 {/* додаємо інформацію про актора */}
                 <div>
-                  <div>{actor.name}</div>
-                  <p>Character: {actor.character}</p>
+                  <h3>{actor.name}</h3>
+                  <p className={css.cast_character}>Character: {actor.character}</p>
                 </div>
               </div>
             ))}
