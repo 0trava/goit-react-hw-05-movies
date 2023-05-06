@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/278.c0bdd99d.chunk.js","mappings":"6IAUA,UANe,WAGd,C","sources":["pages/Movies/Movies.jsx"],"sourcesContent":["\n\n\n\nconst Movies = () => {\n\n\n}\n\n\nexport default Movies;"],"names":[],"sourceRoot":""}
