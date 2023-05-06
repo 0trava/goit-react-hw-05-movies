@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/463.6cc53d88.chunk.css","mappings":"AAAA,uBACI,YAAa,CACb,cAAe,CAEf,QAAS,CADT,4BAEJ,CAEA,6BACI,WACJ","sources":["pages/Movies/cast/Cast.module.css"],"sourcesContent":[".cast_list{\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    gap: 30px;\n}\n\n.cast_character{\n    width: 200px;\n}"],"names":[],"sourceRoot":""}
