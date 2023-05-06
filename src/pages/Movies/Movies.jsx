@@ -13,6 +13,8 @@ const location = useLocation();
 
 
 const getSearchParams = async (e) => {
+    let test = searchParams;
+    console.log(test);
 
     if (filter === ""){
         setSearchParams({});
@@ -65,7 +67,7 @@ return (
         listMovies.map(({id,title}) => (
             <ul>
               <li key={id}>
-                <Link  to={{ pathname: `/movies/${`${id}`}`,
+                <Link to={{ pathname: `/movies/${`${id}`}`,
                     state: {from: { location, label: 'Back to Home',},},
                   }}>
                   <p><span>&#9733;</span> {title}</p>
