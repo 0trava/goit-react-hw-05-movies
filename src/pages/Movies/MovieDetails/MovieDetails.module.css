@@ -2,7 +2,6 @@
 /* Стилі на кнопку */
 
 .movieDet_btn{
-    margin-left: 60px;
     margin-bottom: 20px;
     font-size: 18px;
     color: #121111;
@@ -44,9 +43,14 @@
 
   /* Стилі на блок */
 
+  .movieDet_container{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
   .movieDet_block{
     display: flex;
-    margin-left: 60px;
+
   }
 
   .movieDet_infoBlock{
@@ -73,9 +77,7 @@
     margin-bottom: 10px;
   }
 
-  .movieDet_additional_block{
-    margin-left: 60px;
-  }
+
 
   .movieDet_text{
     font-size: 18px;
