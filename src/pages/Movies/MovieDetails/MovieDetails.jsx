@@ -41,9 +41,9 @@ export default function MovieDetailsPage() {
     <div>This movie is not found</div>
     ) : (
         <>
-        <button  
-        // onClick={onGoBack} 
-        className={css.movieDet_btn}>&#129032; Go back</button>
+         <Link to={location?.state?.from ?? '/'}>
+         <button className={css.movieDet_btn}>&#129032; Go back</button>
+         </Link>
         <div className={css.movieDet_block}>
             <img src={ movie.poster_path
                        ? IMAGE_URL + movie.poster_path
