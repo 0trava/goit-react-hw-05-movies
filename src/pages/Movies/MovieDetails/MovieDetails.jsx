@@ -1,14 +1,12 @@
 import css from "./MovieDetails.module.css";
-// import Loader from '../../../components/Loader/Loader';
+import Loader from '../../../components/Loader/Loader';
 import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails, IMAGE_URL } from '../../../services/movies-api';
 import {
     useParams,
     Outlet,
     Link,
-    // useMatch,
     useLocation,
-    // useNavigate,
   } from 'react-router-dom';
 
 
@@ -16,10 +14,6 @@ export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
     const location = useLocation(); // додаємо доступ до параметрів поточного URL
-    // const history = useNavigate();
-    // const location = useLocation();
-    // const { url, path } = useMatch();
-    console.log("start");
 
 
     useEffect(() => {
@@ -48,7 +42,7 @@ export default function MovieDetailsPage() {
             <img src={ movie.poster_path
                        ? IMAGE_URL + movie.poster_path
                        : `https://bitsofco.de/content/images/2018/12/broken-1.png`}
-                       alt={movie.title} />
+                       alt={movie.title}  width="400"/>
             <div className={css.movieDet_infoBlock}>
                 <h2 className={css.movieDet_title}>{movie.title}</h2>
                 <p className={css.movieDet_userScore}>User Score: {`${Math.round(movie.vote_average*10)}`}% </p>
@@ -69,7 +63,7 @@ export default function MovieDetailsPage() {
                     <li><Link to="reviews" state={{ from: location?.state?.from ?? '/' }}>Reviews</Link></li>
                 </ul>
             </div>
-            <Suspense fallback={<div>Loading subpage...</div>}>
+            <Suspense fallback={<Loader />}>
             <Outlet />
             </Suspense>
                 

@@ -1,4 +1,4 @@
-// import { Suspense } from 'react';
+import Loader from '../Loader/Loader';
 import { Suspense } from "react";
 import { Outlet, Link } from 'react-router-dom';
 import css from './HomePage.module.css'; // підключення стилів
@@ -23,10 +23,10 @@ const SharedLayout = () => {
     </div>
         <div className={css.container_page}>
 
-        <Suspense fallback={<div>Loading page...</div>}>
+        <Suspense fallback={<Loader />}>
             <Outlet />
         </Suspense>
-        
+
         </div>
     </div>
 

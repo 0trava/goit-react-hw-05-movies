@@ -9,7 +9,6 @@ const Cast = () => {
 
     const { movieId } = useParams(); // додаємо параметр movieId
     const [cast, setCast] = useState([]);
-    console.log(movieId);
 
     useEffect(() => {
       const fetchCast = async () => {
