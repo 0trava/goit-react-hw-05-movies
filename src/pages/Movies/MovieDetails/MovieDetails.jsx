@@ -3,6 +3,7 @@ import Loader from '../../../components/Loader/Loader';
 import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails, IMAGE_URL } from '../../../services/movies-api';
 import { useParams,Outlet, Link, useLocation, } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 export default function MovieDetailsPage() {
@@ -64,3 +65,15 @@ export default function MovieDetailsPage() {
                 
     </div>
     )}
+
+    MovieDetailsPage.propTypes = {
+        movie: PropTypes.shape({
+          genres: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired })),
+          title: PropTypes.string.isRequired,
+          release_date: PropTypes.string.isRequired,
+          vote_average: PropTypes.number,
+          poster_path: PropTypes.string.isRequired,
+          overview: PropTypes.string,
+
+        }).isRequired,
+      };

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // доступ до параметрів поточного URL
 import { getReviews } from '../../../services/movies-api';
 import css from './Reviews.module.css';
+import PropTypes from 'prop-types';
 
 
 const Reviews = () => {
@@ -43,3 +44,8 @@ const Reviews = () => {
     );
   };
   export default Reviews;
+
+
+  Reviews.propTypes = {
+    movieId: PropTypes.string.isRequired,
+  };
