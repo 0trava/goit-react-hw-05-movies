@@ -10,7 +10,7 @@ const [filter, setFilter] = useState(''); // Хук для filter
 const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
 const location = useLocation();
-console.log(searchParams);
+
 
 useEffect(() => {
   if (location.state){
@@ -30,7 +30,13 @@ const getSearchParams = async (e) => {
         const getMovies = async () => {
             const { results } = await searchMovies(filter);
             MOVIE_LIST=results;
-            setListMovies(results);
+            console.log(results);
+            if (results.lenght > 1){
+              setListMovies(results);
+            } else {
+              alert(`We didn't find film with this name "${filter}" `)
+            }
+            
           };
 
         getMovies();  
