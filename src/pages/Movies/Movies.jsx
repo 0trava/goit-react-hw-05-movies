@@ -11,6 +11,7 @@ const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
 const location = useLocation();
 
+console.log(searchParams);
 
 useEffect(() => {
   if (location.state){
