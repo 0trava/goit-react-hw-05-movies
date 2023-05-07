@@ -5,7 +5,7 @@ import css from './HomePage.module.css'; // підключення стилів
 
 
 
-const SharedLayout = () => {
+const Header = () => {
   return (
     <div>
       <div className={css.container}>
@@ -33,4 +33,4 @@ const SharedLayout = () => {
   );
 };
 
-  export default SharedLayout;
+  export default Header;
