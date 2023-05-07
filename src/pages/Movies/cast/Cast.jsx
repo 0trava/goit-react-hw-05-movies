@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // доступ до параметрів поточного URL
 import { getMovieCast } from '../../../services/movies-api'; // додаємо запит
 import css from './Cast.module.css';
-import PropTypes from 'prop-types';
 
 
 
@@ -64,7 +63,3 @@ const Cast = () => {
   };
   
   export default Cast;
-
-  Cast.propTypes = {
-    movieId: PropTypes.string.isRequired,
-  };
