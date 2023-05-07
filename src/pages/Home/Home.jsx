@@ -2,17 +2,21 @@ import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../../services/movies-api';
 import { Link, useLocation } from 'react-router-dom';
 
+
+
 const Home = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
+  
 
   useEffect(() => {
     const getMovies = async () => {
       const { results } = await fetchTrendingMovies();
 
       setMovies(results);
+            
     };
-
+    
     getMovies();
   }, []);
 

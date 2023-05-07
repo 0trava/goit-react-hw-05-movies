@@ -1,8 +1,9 @@
 import css from './Movies.module.css';
-import {useState } from 'react'; // пакети для роботи зі станом
+import {useState, useEffect } from 'react'; // пакети для роботи зі станом
 import {Link, useSearchParams, useLocation} from 'react-router-dom';
 import {searchMovies} from '../../services/movies-api';
 
+let MOVIE_LIST = '';
 
 
 const Movies = () => {
@@ -11,10 +12,16 @@ const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
 const location = useLocation();
 
+useEffect(() => {
+  if (location.state){
+    setListMovies(MOVIE_LIST);
+  } 
+  return;
+
+}, []);
+
 
 const getSearchParams = async (e) => {
-    let test = searchParams;
-    console.log(test);
 
     if (filter === ""){
         setSearchParams({});
@@ -22,7 +29,7 @@ const getSearchParams = async (e) => {
         e.preventDefault(); // Зупиняємо оновлення сторінки
         const getMovies = async () => {
             const { results } = await searchMovies(filter);
-      
+            MOVIE_LIST=results;
             setListMovies(results);
           };
 
@@ -67,9 +74,7 @@ return (
         listMovies.map(({id,title}) => (
             <ul>
               <li key={id}>
-                <Link to={{ pathname: `/movies/${`${id}`}`,
-                    state: {from: { location, label: 'Back to Home',},},
-                  }}>
+                <Link to={{ pathname: `/movies/${`${id}`}`}} state={{ from: location }}>
                   <p><span>&#9733;</span> {title}</p>
                 </Link>
               </li>

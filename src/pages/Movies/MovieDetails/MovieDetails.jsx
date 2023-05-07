@@ -30,7 +30,7 @@ export default function MovieDetailsPage() {
     <div>This movie is not found</div>
     ) : (
         <>
-         <Link to={location?.state?.from ?? '/'}>
+         <Link  to={location?.state?.from ?? '/'}  state={{ from: location }}>
          <button className={css.movieDet_btn}>&#129032; Go back</button>
          </Link>
         <div className={css.movieDet_block}>
