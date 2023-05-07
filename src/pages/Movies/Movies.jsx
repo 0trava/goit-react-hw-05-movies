@@ -5,12 +5,12 @@ import {searchMovies} from '../../services/movies-api';
 
 let MOVIE_LIST = '';
 
-
 const Movies = () => {
 const [filter, setFilter] = useState(''); // Хук для filter
 const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
 const location = useLocation();
+console.log(searchParams);
 
 useEffect(() => {
   if (location.state){
