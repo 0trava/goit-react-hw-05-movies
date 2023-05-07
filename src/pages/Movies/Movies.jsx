@@ -18,7 +18,7 @@ useEffect(() => {
   } 
   return;
 
-}, []);
+}, [location.state]);
 
 
 const getSearchParams = async (e) => {
