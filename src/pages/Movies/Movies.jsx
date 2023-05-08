@@ -31,11 +31,12 @@ const getSearchParams = async (e) => {
         const getMovies = async () => {
             const { results } = await searchMovies(filter);
             MOVIE_LIST=results;
-            console.log(results);
-            if (results.lenght > 1){
-              setListMovies(results);
-            } else {
+            console.log(results.length);
+            if (results.length < 1){
               alert(`We didn't find film with this name "${filter}" `)
+            } else {
+
+              setListMovies(results);
             }
             
           };
