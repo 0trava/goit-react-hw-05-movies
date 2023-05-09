@@ -3,26 +3,32 @@ import {useState, useEffect } from 'react'; // пакети для роботи 
 import {Link, useSearchParams, useLocation} from 'react-router-dom';
 import {searchMovies} from '../../services/movies-api';
 
-let MOVIE_LIST = '';
-
 const Movies = () => {
 const [filter, setFilter] = useState(''); // Хук для filter
 const [searchParams, setSearchParams] = useSearchParams();
 const [listMovies, setListMovies] = useState();
 const location = useLocation();
 
-console.log(searchParams);
 
-useEffect(() => {
-  if (location.state){
-    setListMovies(MOVIE_LIST);
-  } 
-  return;
 
-}, [location.state]);
+useEffect(()=>{
+
+  console.log(location.search.replace("?c=", ""));
+  const searchLoad = location.search.replace("?c=", "");
+  if (searchLoad === ""){
+    return
+  } else {
+      const getMovies = async () => {
+          const { results } = await searchMovies(searchLoad);
+            setListMovies(results);
+        };
+      getMovies();  
+  }
+},[location.search])
 
 
 const getSearchParams = async (e) => {
+    console.log(searchParams);
 
     if (filter === ""){
         setSearchParams({});
@@ -30,12 +36,9 @@ const getSearchParams = async (e) => {
         e.preventDefault(); // Зупиняємо оновлення сторінки
         const getMovies = async () => {
             const { results } = await searchMovies(filter);
-            MOVIE_LIST=results;
-            console.log(results.length);
             if (results.length < 1){
               alert(`We didn't find film with this name "${filter}" `)
             } else {
-
               setListMovies(results);
             }
             
